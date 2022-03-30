@@ -4,7 +4,7 @@ export default class navBar extends Component {
     render() {
         return (
             <>
-                <nav className="nav flex flex-wrap items-center bg-gray-100 justify-between px-4">
+                <nav className="nav fixed top-0 left-0 right-0  flex flex-wrap items-center bg-gray-100 justify-between px-4">
                     <div className="flex flex-no-shrink items-center mr-6 py-3 text-grey-darkest">
                         <span className="font-semibold text-xl tracking-tight">Marketplace</span>
                     </div>
