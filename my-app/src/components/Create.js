@@ -1,7 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
-function Create() {
-  return <h1>This is Create Page</h1>;
+export default class Create extends Component {
+  render() {
+    return (
+      <>
+        
+      </>
+    );
+  }
 }
-
-export default Create;

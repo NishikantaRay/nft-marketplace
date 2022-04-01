@@ -63,7 +63,12 @@
   border-radius: 20px;
 }
 .explore-grid {
-  padding-left: 10%;
+  /* padding-left: 10%; */
   padding-top: 7%;
   padding-bottom: 15%;
+}
+.explore-grid1{
+  
+  padding-top: 10%;
+  
 }
