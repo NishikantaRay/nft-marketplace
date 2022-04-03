@@ -1,6 +1,27 @@
-import React, { Component } from "react";
-
+import React, { useState, Component } from "react";
+import axios from "axios";
 export default class Create extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      description: "",
+      image: "",
+    };
+  }
+  nameHandler = (e) => {
+    e.preventDefault();
+    this.setState({ name: e.target.value, description: "" });
+  };
+  descriptionHandler = (e) => {
+    e.preventDefault();
+    this.setState({ description: e.target.value });
+  };
+  uploadHandler = (e) => {
+    let currentfile = e.target.files;
+    let res = currentfile[0].name;
+    this.setState({ image: res });
+  };
   render() {
     return (
       <>
@@ -16,14 +37,14 @@ export default class Create extends Component {
                     <div className="grid grid-cols-3 gap-6">
                       <div className="col-span-3 sm:col-span-2">
                         <label
-                          for="company_website"
+                          htmlFor="company_website"
                           className="block text-sm font-medium text-gray-700"
                         >
                           Name
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
-                         
                           <input
+                            onChange={this.nameHandler}
                             type="text"
                             name="company_website"
                             id="company_website"
@@ -36,13 +57,14 @@ export default class Create extends Component {
 
                     <div>
                       <label
-                        for="about"
+                        htmlFor="about"
                         className="block text-sm font-medium text-gray-700"
                       >
                         Description
                       </label>
                       <div className="mt-1">
                         <textarea
+                          onChange={this.descriptionHandler}
                           id="about"
                           name="about"
                           rows="3"
@@ -50,7 +72,6 @@ export default class Create extends Component {
                           placeholder="Enter your NFT Details"
                         ></textarea>
                       </div>
-                      
                     </div>
 
                     <div>
@@ -75,11 +96,12 @@ export default class Create extends Component {
                           </svg>
                           <div className="flex text-sm text-gray-600">
                             <label
-                              for="file-upload"
+                              htmlFor="file-upload"
                               className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                             >
                               <span>Upload a file</span>
                               <input
+                                onChange={this.uploadHandler}
                                 id="file-upload"
                                 name="file-upload"
                                 type="file"
